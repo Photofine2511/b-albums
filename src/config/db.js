@@ -3,12 +3,9 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     // Use MongoDB Atlas connection string from .env file or fall back to localhost
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/cover-carousel';
+    const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://photofinealbums:Photofine2511@cluster01.jyg2mwu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster01';
     
-    const conn = await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(mongoURI);
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
